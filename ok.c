@@ -28,7 +28,7 @@ static void render_callback(Canvas* const canvas, void* ctx) {
 
     canvas_set_font(canvas, FontPrimary);
     canvas_draw_str_aligned(
-        canvas, plugin_state->x, plugin_state->y, AlignRight, AlignBottom, "hi");
+        canvas, plugin_state->x, plugin_state->y, AlignRight, AlignBottom, "Hello World");
 
     release_mutex((ValueMutex*)ctx, plugin_state);
 }
@@ -54,7 +54,7 @@ int32_t hello_world_app() {
 
     ValueMutex state_mutex;
     if(!init_mutex(&state_mutex, plugin_state, sizeof(PluginState))) {
-        FURI_LOG_E("hi", "cannot create mutex\r\n");
+        FURI_LOG_E("Hello_world", "cannot create mutex\r\n");
         free(plugin_state);
         return 255;
     }
@@ -99,7 +99,7 @@ int32_t hello_world_app() {
                 }
             }
         } else {
-            FURI_LOG_D("hi", "FuriMessageQueue: event timeout");
+            FURI_LOG_D("Hello_world", "FuriMessageQueue: event timeout");
             // event timeout
         }
 
